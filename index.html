@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rechtsanwalt Stefan Nowak – Fachanwalt für Familienrecht Berlin Kreuzberg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --dark:   #1a1510;
+    --darker: #100e09;
+    --slate:  #26201a;
+    --gold:   #9c6f2e;
+    --paper:  #faf8f4;
+    --cream:  #f0e8d8;
+    --muted:  #7a6850;
+    --border: rgba(156,111,46,0.2);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--dark); overflow-x: hidden; }
+  a[href^="tel"], a[href^="mailto"] { color: inherit; text-decoration: none; -webkit-text-decoration: none; }
+
+  .banner { background: var(--darker); border-bottom: 1px solid var(--border); padding: .85rem 5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .8rem; }
+  .banner-left { display: flex; align-items: center; gap: .6rem; font-size: .82rem; color: rgba(156,111,46,.8); letter-spacing: .05em; }
+  .banner-right { display: flex; gap: 2rem; flex-wrap: wrap; }
+  .banner-link { display: flex; align-items: center; gap: .55rem; text-decoration: none; color: var(--gold); font-weight: 600; font-size: .88rem; transition: opacity .2s; -webkit-text-decoration: none; }
+  .banner-link:hover { opacity: .7; }
+  .banner-link[href^="tel"], .banner-link[href^="mailto"] { color: var(--gold); }
+
+  nav { position: sticky; top: 0; z-index: 100; background: var(--dark); padding: 0 5rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,.05); transition: box-shadow .3s; }
+  .nav-logo { padding: 1.4rem 0; text-decoration: none; }
+  .nav-logo-main { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--paper); letter-spacing: .04em; }
+  .nav-logo-main span { color: var(--gold); }
+  .nav-logo-sub { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(200,200,200,.35); font-weight: 400; display: block; margin-top: .15rem; }
+  .nav-links { display: flex; list-style: none; }
+  .nav-links li a { display: block; padding: 1.4rem 1.1rem; font-size: .78rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: rgba(200,200,200,.5); text-decoration: none; transition: color .2s; position: relative; }
+  .nav-links li a::after { content: ''; position: absolute; bottom: 0; left: 1.1rem; right: 1.1rem; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: center; transition: transform .3s; }
+  .nav-links li a:hover { color: var(--paper); }
+  .nav-links li a:hover::after { transform: scaleX(1); }
+  .nav-cta a { color: var(--gold) !important; }
+
+  .hero { background: var(--dark); min-height: 88vh; display: grid; grid-template-columns: 55% 45%; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; top: 0; right: 44%; bottom: 0; width: 80px; background: linear-gradient(to right, var(--dark), transparent); z-index: 3; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 6rem 5rem; position: relative; z-index: 4; }
+  .hero-eyebrow { display: flex; align-items: center; gap: .8rem; margin-bottom: 2.5rem; }
+  .eyebrow-line { width: 32px; height: 1px; background: var(--gold); }
+  .eyebrow-text { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.2rem, 5.5vw, 5.5rem); font-weight: 600; line-height: 1.05; color: var(--paper); margin-bottom: 1.5rem; }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero-divider { width: 48px; height: 1.5px; background: linear-gradient(to right, var(--gold), transparent); margin-bottom: 1.8rem; }
+  .hero-desc { font-size: 1rem; color: rgba(250,248,244,.5); line-height: 1.85; max-width: 480px; font-weight: 300; margin-bottom: 3rem; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 3.5rem; }
+  .tag { padding: .4rem 1rem; border: 1px solid rgba(156,111,46,.3); font-size: .76rem; color: rgba(156,111,46,.8); letter-spacing: .08em; text-transform: uppercase; font-weight: 500; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: .6rem; background: var(--gold); color: var(--paper); padding: .9rem 2rem; font-size: .85rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: opacity .2s, transform .2s; font-family: 'DM Sans', sans-serif; }
+  .btn-primary:hover { opacity: .85; transform: translateY(-1px); }
+  .btn-outline { display: inline-flex; align-items: center; gap: .6rem; background: transparent; color: rgba(250,248,244,.7); padding: .9rem 2rem; font-size: .85rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(250,248,244,.2); cursor: pointer; transition: border-color .2s, color .2s, transform .2s; }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); }
+
+  .hero-right { position: relative; overflow: hidden; background: var(--slate); }
+  .hero-img-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #140f0a 0%, #26201a 50%, #140f0a 100%); display: flex; align-items: center; justify-content: center; min-height: 400px; }
+  .hero-pattern-overlay { position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg, rgba(156,111,46,.04) 0, rgba(156,111,46,.04) 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, rgba(156,111,46,.04) 0, rgba(156,111,46,.04) 1px, transparent 1px, transparent 60px); }
+  .hero-stats { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(16,14,9,.88); backdrop-filter: blur(10px); display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid rgba(156,111,46,.15); z-index: 5; }
+  .hero-stat { padding: 1.5rem 2rem; border-right: 1px solid rgba(156,111,46,.1); }
+  .hero-stat:last-child { border-right: none; }
+  .hs-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--gold); display: block; }
+  .hs-label { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(200,200,200,.4); font-weight: 500; margin-top: .2rem; }
+
+  /* SPRACHEN BANNER */
+  .sprachen { background: var(--cream); border-bottom: 2px solid var(--gold); padding: 1.2rem 5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+  .sprachen-label { font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+  .sprachen-items { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .sprachen-item { display: flex; align-items: center; gap: .4rem; font-size: .82rem; color: var(--muted); font-weight: 400; }
+  .sprachen-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+
+  .areas { padding: 7rem 5rem; background: var(--paper); }
+  .section-header { margin-bottom: 4rem; }
+  .s-tag { display: flex; align-items: center; gap: .7rem; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: .8rem; }
+  .s-tag::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+  .s-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 600; color: var(--dark); line-height: 1.1; }
+  .s-title-w { color: var(--paper); }
+  .s-sub { font-size: .98rem; color: var(--muted); font-weight: 300; line-height: 1.7; max-width: 540px; margin-top: .8rem; }
+  .s-sub-w { color: rgba(250,248,244,.4); }
+
+  .areas-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: rgba(0,0,0,.08); border: 1px solid rgba(0,0,0,.08); }
+  .area-card { background: var(--paper); padding: 2.5rem 1.8rem; transition: background .25s; position: relative; overflow: hidden; }
+  .area-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .35s; }
+  .area-card:hover { background: #fff; }
+  .area-card:hover::after { transform: scaleX(1); }
+  .ac-icon { width: 40px; height: 40px; margin-bottom: 1.5rem; }
+  .ac-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--dark); margin-bottom: .6rem; }
+  .ac-list { list-style: none; display: flex; flex-direction: column; gap: .35rem; }
+  .ac-list li { font-size: .82rem; color: var(--muted); line-height: 1.55; font-weight: 300; display: flex; align-items: flex-start; gap: .45rem; }
+  .ac-list li::before { content: ''; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: .45rem; }
+
+  .about { background: var(--dark); padding: 7rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .about-desc { font-size: .98rem; color: rgba(250,248,244,.55); line-height: 1.9; font-weight: 300; margin: 1.5rem 0; }
+  .about-punkte { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .about-punkt { display: flex; align-items: flex-start; gap: 1rem; padding: 1.2rem 1.5rem; background: rgba(156,111,46,.08); border-left: 3px solid var(--gold); }
+  .a-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: .35rem; }
+  .a-text { font-size: .92rem; color: rgba(250,248,244,.75); line-height: 1.6; }
+  .a-text strong { font-weight: 600; display: block; margin-bottom: .2rem; color: var(--paper); }
+
+  .zeiten-box { background: rgba(156,111,46,.08); border: 1px solid rgba(156,111,46,.2); padding: 3rem; position: relative; overflow: hidden; }
+  .zeiten-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--gold), transparent); }
+  .zb-label { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 2rem; display: block; }
+  .zb-item { padding: 1.1rem 0; border-bottom: 1px solid rgba(156,111,46,.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
+  .zb-item:last-child { border-bottom: none; }
+  .zb-day { font-size: .88rem; color: rgba(250,248,244,.55); font-weight: 300; }
+  .zb-time { font-size: .88rem; color: var(--paper); font-weight: 500; }
+
+  .contact { padding: 7rem 5rem; background: var(--paper); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+  .contact-detail { display: flex; gap: .8rem; align-items: flex-start; margin-bottom: 1rem; }
+  .contact-detail svg { flex-shrink: 0; margin-top: 2px; }
+  .cd-label { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); font-weight: 500; display: block; margin-bottom: .2rem; }
+  .cd-val { font-size: .93rem; color: var(--dark); line-height: 1.55; }
+  .cd-val a { color: var(--dark); text-decoration: none; -webkit-text-decoration: none; }
+  .cd-val a:hover { color: var(--gold); }
+  .sf-label { display: block; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: .4rem; }
+  .sf-input { width: 100%; padding: .75rem 1rem; border: 1.5px solid rgba(0,0,0,.12); background: #fff; color: var(--dark); font-family: 'DM Sans', sans-serif; font-size: .9rem; outline: none; transition: border-color .2s; border-radius: 0; }
+  .sf-input:focus { border-color: var(--gold); }
+  textarea.sf-input { resize: vertical; }
+
+  footer { background: var(--darker); padding: 2.5rem 5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255,255,255,.05); }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--paper); }
+  .footer-logo span { color: var(--gold); }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: rgba(200,200,200,.3); text-decoration: none; transition: color .2s; position: relative; }
+  .footer-links a:hover { color: #fff; }
+  .footer-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 1.5px; background: var(--gold); transform: scaleX(0); transform-origin: center; transition: transform .3s; }
+  .footer-links a:hover::after { transform: scaleX(1); }
+  .footer-copy { font-size: .78rem; color: rgba(200,200,200,.25); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-left > * { opacity: 0; animation: fadeUp .65s forwards; }
+  .hero-left > *:nth-child(1) { animation-delay: .1s; }
+  .hero-left > *:nth-child(2) { animation-delay: .22s; }
+  .hero-left > *:nth-child(3) { animation-delay: .34s; }
+  .hero-left > *:nth-child(4) { animation-delay: .46s; }
+  .hero-left > *:nth-child(5) { animation-delay: .58s; }
+  .hero-left > *:nth-child(6) { animation-delay: .7s; }
+
+  @media (max-width: 1200px) {
+    nav, .banner, .sprachen, .areas, .about, .contact, footer { padding-left: 2rem; padding-right: 2rem; }
+    .hero { grid-template-columns: 1fr; }
+    .hero::after { display: none; }
+    .hero-right { min-height: 360px; }
+    .areas-grid { grid-template-columns: repeat(2,1fr); }
+    .about { grid-template-columns: 1fr; gap: 3rem; }
+    .contact { grid-template-columns: 1fr; gap: 3rem; }
+  }
+  @media (max-width: 768px) {
+    .banner { padding: .7rem 1.2rem; flex-direction: column; align-items: flex-start; gap: .5rem; }
+    .banner-right { gap: 1rem; }
+    nav { padding: 0 1.2rem; }
+    .nav-links { display: none; }
+    .hero-left { padding: 2.5rem 1.2rem; }
+    .hero h1 { font-size: 2.6rem; }
+    .sprachen { padding: 1rem 1.2rem; gap: 1rem; }
+    .areas { padding: 3rem 1.2rem; }
+    .areas-grid { grid-template-columns: 1fr; }
+    .area-card { padding: 1.8rem 1.2rem; }
+    .about { padding: 3rem 1.2rem; grid-template-columns: 1fr; gap: 2rem; }
+    .zeiten-box { padding: 1.8rem 1.2rem; }
+    .contact { padding: 3rem 1.2rem; grid-template-columns: 1fr; gap: 2rem; }
+    .kontakt-form-grid { grid-template-columns: 1fr !important; }
+    footer { padding: 2rem 1.2rem; flex-direction: column; align-items: flex-start; gap: .8rem; }
+    .footer-links { flex-wrap: wrap; gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <div class="banner-left">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    Bergmannstraße 103, 10961 Berlin-Kreuzberg
+  </div>
+  <div class="banner-right">
+    <a href="tel:+4930611331" class="banner-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.64 13 19.79 19.79 0 0 1 1.57 4.36 2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      030 611 33 14
+    </a>
+    <a href="mailto:stefan.nowak@t-online.de" class="banner-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      stefan.nowak@t-online.de
+    </a>
+  </div>
+</div>
+
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-main">Rechtsanwalt <span>Nowak</span></span>
+    <span class="nav-logo-sub">Fachanwalt für Familienrecht Berlin Kreuzberg</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#rechtsgebiete">Rechtsgebiete</a></li>
+    <li><a href="#kanzlei">Kanzlei</a></li>
+    <li class="nav-cta"><a href="#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Fachanwalt für Familienrecht Berlin Kreuzberg seit 1987</span>
+    </div>
+    <h1>Nicht nur Recht<br>haben – auch zu<br><em>Ihrem Recht</em> kommen.</h1>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">Seit 1987 als Rechtsanwalt tätig, seit 2007 Fachanwalt für Familienrecht. Beratung auf Deutsch, Polnisch, Englisch, Französisch und Spanisch.</p>
+    <div class="hero-tags">
+      <span class="tag">Familienrecht</span>
+      <span class="tag">Psychiatrierecht</span>
+      <span class="tag">Sozialrecht</span>
+      <span class="tag">Strafrecht</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#kontakt" class="btn-primary" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'}); return false;">Termin vereinbaren</a>
+      <a href="#rechtsgebiete" class="btn-outline">Rechtsgebiete</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-placeholder">
+      <div class="hero-pattern-overlay"></div>
+      <!--
+        FOTO EINBINDEN:
+        <img src="images/nowak.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;opacity:.55;">
+      -->
+      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" opacity=".1" style="position:relative;z-index:1;">
+        <circle cx="40" cy="40" r="38" stroke="#9c6f2e" stroke-width="1.5"/>
+        <line x1="40" y1="15" x2="40" y2="65" stroke="#9c6f2e" stroke-width="2"/>
+        <line x1="18" y1="15" x2="62" y2="15" stroke="#9c6f2e" stroke-width="2"/>
+        <line x1="18" y1="15" x2="10" y2="35" stroke="#9c6f2e" stroke-width="1.5"/>
+        <line x1="18" y1="15" x2="26" y2="35" stroke="#9c6f2e" stroke-width="1.5"/>
+        <path d="M8 35 Q18 42 28 35" stroke="#9c6f2e" stroke-width="1.5"/>
+        <line x1="62" y1="15" x2="54" y2="32" stroke="#9c6f2e" stroke-width="1.5"/>
+        <line x1="62" y1="15" x2="70" y2="32" stroke="#9c6f2e" stroke-width="1.5"/>
+        <path d="M52 32 Q62 39 72 32" stroke="#9c6f2e" stroke-width="1.5"/>
+        <line x1="30" y1="65" x2="50" y2="65" stroke="#9c6f2e" stroke-width="2"/>
+        <circle cx="40" cy="15" r="3" fill="#9c6f2e"/>
+      </svg>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="hs-num">1987</span><span class="hs-label">Tätig seit</span></div>
+      <div class="hero-stat"><span class="hs-num">FA</span><span class="hs-label">Fachanwalt Familienrecht</span></div>
+      <div class="hero-stat"><span class="hs-num">5</span><span class="hs-label">Sprachen</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPRACHEN -->
+<div class="sprachen">
+  <span class="sprachen-label">Beratungssprachen</span>
+  <div class="sprachen-items">
+    <span class="sprachen-item"><span class="sprachen-dot"></span>Deutsch</span>
+    <span class="sprachen-item"><span class="sprachen-dot"></span>Polnisch</span>
+    <span class="sprachen-item"><span class="sprachen-dot"></span>Englisch</span>
+    <span class="sprachen-item"><span class="sprachen-dot"></span>Französisch</span>
+    <span class="sprachen-item"><span class="sprachen-dot"></span>Spanisch</span>
+  </div>
+</div>
+
+<section class="areas" id="rechtsgebiete">
+  <div class="section-header">
+    <div class="s-tag">Tätigkeitsschwerpunkte</div>
+    <h2 class="s-title">Rechtsgebiete</h2>
+    <p class="s-sub">Kompetente und kreative Lösungen für Ihre Rechtsprobleme. Damit Sie nicht nur Recht haben, sondern auch zu Ihrem Recht kommen.</p>
+  </div>
+  <div class="areas-grid">
+    <div class="area-card">
+      <svg class="ac-icon" viewBox="0 0 40 40" fill="none"><circle cx="15" cy="12" r="5" stroke="#9c6f2e" stroke-width="1.5"/><circle cx="25" cy="12" r="5" stroke="#9c6f2e" stroke-width="1.5"/><path d="M5 32c0-6 4-10 10-10h10c6 0 10 4 10 10" stroke="#9c6f2e" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div class="ac-title">Familienrecht</div>
+      <ul class="ac-list">
+        <li>Scheidungsrecht und Vermögensauseinandersetzung</li>
+        <li>Kindschaftsrecht und elterliche Sorge</li>
+        <li>Umgangsrecht und Unterhalt</li>
+        <li>Opferschutz</li>
+      </ul>
+    </div>
+    <div class="area-card">
+      <svg class="ac-icon" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="8" stroke="#9c6f2e" stroke-width="1.5"/><path d="M8 34c0-6 5-10 12-10s12 4 12 10" stroke="#9c6f2e" stroke-width="1.5" stroke-linecap="round"/><path d="M16 12l3 3 5-5" stroke="#9c6f2e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="ac-title">Psychiatrierecht</div>
+      <ul class="ac-list">
+        <li>Unterbringungsrecht</li>
+        <li>Betreuungsrecht</li>
+        <li>Zwangsmaßnahmen und Patientenrechte</li>
+        <li>Vertretung vor dem Betreuungsgericht</li>
+      </ul>
+    </div>
+    <div class="area-card">
+      <svg class="ac-icon" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="18" r="8" stroke="#9c6f2e" stroke-width="1.5"/><path d="M8 34c0-6 5-10 12-10s12 4 12 10" stroke="#9c6f2e" stroke-width="1.5" stroke-linecap="round"/><path d="M20 14v4l3 2" stroke="#9c6f2e" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div class="ac-title">Sozialrecht</div>
+      <ul class="ac-list">
+        <li>Rentenrecht und Berufsunfähigkeit</li>
+        <li>Krankengeldsachen</li>
+        <li>Schwerbehinderung</li>
+        <li>Leistungsstreitigkeiten mit Behörden</li>
+      </ul>
+    </div>
+    <div class="area-card">
+      <svg class="ac-icon" viewBox="0 0 40 40" fill="none"><path d="M20 6l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z" stroke="#9c6f2e" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 28h20M13 33h14" stroke="#9c6f2e" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div class="ac-title">Strafrecht</div>
+      <ul class="ac-list">
+        <li>Strafverteidigung in allen Instanzen</li>
+        <li>Vertretung im Ermittlungsverfahren</li>
+        <li>Opfervertretung und Nebenklage</li>
+        <li>Jugendstrafrecht</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="kanzlei">
+  <div>
+    <div class="s-tag" style="color:var(--gold)">Zur Person</div>
+    <h2 class="s-title s-title-w">Stefan Nowak</h2>
+    <p class="about-desc">Seit 1987 tätig als Rechtsanwalt, seit 2007 Fachanwalt für Familienrecht. Die Kanzlei befindet sich seit dem 28. November 2017 in der Bergmannstraße 103 in Berlin-Kreuzberg.</p>
+    <p class="about-desc">Oberstes Ziel meiner Arbeit ist es, Rechtsprobleme umfassend, kompetent und kreativ zu lösen, damit Sie nicht nur Recht haben, sondern auch zu Ihrem Recht kommen.</p>
+    <div class="about-punkte">
+      <div class="about-punkt"><div class="a-dot"></div><div class="a-text"><strong>Fast 40 Jahre Erfahrung</strong>Seit 1987 als Rechtsanwalt tätig. Tiefe Praxiserfahrung in Familienrecht, Psychiatrierecht, Sozialrecht und Strafrecht.</div></div>
+      <div class="about-punkt"><div class="a-dot"></div><div class="a-text"><strong>Fünf Beratungssprachen</strong>Beratung auf Deutsch, Polnisch, Englisch, Französisch und Spanisch. Für internationale Mandanten und Berlins vielfältige Bevölkerung.</div></div>
+      <div class="about-punkt"><div class="a-dot"></div><div class="a-text"><strong>Transparente Beratung</strong>Über Erfolgsaussichten, Risiken und Kosten von Gerichtsverfahren berate ich eingehend und ehrlich.</div></div>
+    </div>
+  </div>
+  <div>
+    <div class="zeiten-box">
+      <span class="zb-label">Kontakt</span>
+      <div class="zb-item"><span class="zb-day">Telefon</span><span class="zb-time"><a href="tel:+4930611331" style="color:var(--paper);text-decoration:none;">030 611 33 14</a></span></div>
+      <div class="zb-item"><span class="zb-day">Fax</span><span class="zb-time">030 611 19 05</span></div>
+      <div class="zb-item"><span class="zb-day">E-Mail</span><span class="zb-time"><a href="mailto:stefan.nowak@t-online.de" style="color:var(--paper);text-decoration:none;">stefan.nowak@t-online.de</a></span></div>
+      <div class="zb-item"><span class="zb-day">Adresse</span><span class="zb-time">Bergmannstraße 103, 10961 Berlin-Kreuzberg</span></div>
+      <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(156,111,46,.15)"><p style="font-size:.82rem;color:rgba(250,248,244,.35);font-weight:300;line-height:1.7;">Mitglied der Rechtsanwaltskammer Berlin. Beratung auf Deutsch, Polnisch, Englisch, Französisch und Spanisch.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div>
+    <div class="s-tag">Kanzlei finden</div>
+    <h2 class="s-title">Kontakt und Anfahrt</h2>
+    <div style="margin-top:2.5rem;">
+      <div class="contact-detail">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9c6f2e" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div><span class="cd-label">Adresse</span><span class="cd-val">Bergmannstraße 103<br>10961 Berlin-Kreuzberg</span></div>
+      </div>
+      <div class="contact-detail">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9c6f2e" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07"/></svg>
+        <div><span class="cd-label">Telefon und Fax</span><span class="cd-val"><a href="tel:+4930611331">Tel: 030 611 33 14</a><br>Fax: 030 611 19 05</span></div>
+      </div>
+      <div class="contact-detail">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9c6f2e" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <div><span class="cd-label">E-Mail</span><span class="cd-val"><a href="mailto:stefan.nowak@t-online.de">stefan.nowak@t-online.de</a></span></div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--dark);margin-bottom:1.5rem;">Nachricht senden</div>
+    <form id="kontaktForm" style="display:flex;flex-direction:column;gap:1rem;">
+      <div class="kontakt-form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div><label class="sf-label">Vorname</label><input type="text" name="vorname" class="sf-input" placeholder="Max"></div>
+        <div><label class="sf-label">Nachname</label><input type="text" name="nachname" class="sf-input" placeholder="Mustermann"></div>
+      </div>
+      <div><label class="sf-label">E-Mail</label><input type="email" name="email" required class="sf-input" placeholder="max@beispiel.de"></div>
+      <div><label class="sf-label">Telefon</label><input type="tel" name="telefon" class="sf-input" placeholder="030 ..."></div>
+      <div>
+        <label class="sf-label">Rechtsgebiet</label>
+        <select name="gebiet" class="sf-input" style="appearance:none;cursor:pointer;">
+          <option>Bitte wählen ...</option>
+          <option>Familienrecht</option>
+          <option>Psychiatrierecht</option>
+          <option>Sozialrecht</option>
+          <option>Strafrecht</option>
+          <option>Sonstiges</option>
+        </select>
+      </div>
+      <div><label class="sf-label">Bevorzugte Sprache</label>
+        <select name="sprache" class="sf-input" style="appearance:none;cursor:pointer;">
+          <option>Deutsch</option>
+          <option>Polnisch</option>
+          <option>Englisch</option>
+          <option>Französisch</option>
+          <option>Spanisch</option>
+        </select>
+      </div>
+      <div><label class="sf-label">Ihr Anliegen</label><textarea name="nachricht" class="sf-input" rows="4" placeholder="Schildern Sie kurz Ihre Situation ..."></textarea></div>
+      <button type="submit" class="btn-primary" style="border:none;cursor:pointer;align-self:flex-start;font-size:.85rem;">Nachricht senden</button>
+      <span id="kontakt-status" style="font-size:.88rem;"></span>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Rechtsanwalt <span>Nowak</span></div>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+  <div class="footer-copy">2026 Rechtsanwalt Stefan Nowak, Berlin-Kreuzberg</div>
+</footer>
+
+<script>
+  document.getElementById('kontaktForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const status = document.getElementById('kontakt-status');
+    status.style.color = 'var(--muted)';
+    status.textContent = 'Wird gesendet ...';
+    try {
+      const res = await fetch('mail.php', { method: 'POST', body: new FormData(this) });
+      if (res.ok) {
+        status.style.color = 'var(--gold)';
+        status.textContent = 'Nachricht gesendet. Ich melde mich bald!';
+        this.reset();
+      } else throw new Error();
+    } catch {
+      status.style.color = 'crimson';
+      status.textContent = 'Fehler. Bitte rufen Sie an: 030 611 33 14';
+    }
+  });
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').style.boxShadow = window.scrollY > 10 ? '0 4px 30px rgba(0,0,0,0.3)' : 'none';
+  });
+</script>
+</body>
+</html>
